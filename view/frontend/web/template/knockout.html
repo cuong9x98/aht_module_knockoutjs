@@ -1,0 +1,32 @@
+<fieldset class="fieldset qa-fieldset">
+    <div class="field qa-field-question required">
+        <label for="" class="label"><span>Name</span></label>
+        <input name="name" data-validate="{required:true}" data-bind="value: customer_name" type="text">
+        <label for="" class="label"><span>Address line 1</span></label>
+        <input name="address" data-validate="{required:true}" data-bind="value: address_customer" type="text">
+        <label for="" class="label"><span>Address line 2</span></label>
+        <input name="addressline" data-validate="{required:true}" data-bind="value: addressline_customer" type="text">
+        <label for="" class="label"><span>City</span></label>
+        <input name="city" data-validate="{required:true}" data-bind="value: city_customer" type="text">
+        <label for="" class="label"><span>Country</span></label>
+        <select name="country" data-validate="{required:true}" data-bind="options:country_all,value: country_customer">
+        </select>
+        <label for="" class="label"><span>States</span></label>
+        <select name="states" data-validate="{required:true}" data-bind="options:state_all,value: state_customer">
+        </select>
+
+        <label for="" class="label"><span>Zip Code</span></label>
+        <input name="zipcode" data-validate="{required:true}" data-bind="value: zipcode_customer" type="text">
+        <label for="" class="label"><span>Number Phone</span></label>
+        <input name="numberphone" data-validate="{required:true}" data-bind="value: numberphone_customer" type="text">
+        <label for="" class="label"><span>Email</span></label>
+        <input name="email" data-validate="{required:true}" data-bind="value: email_customer" type="text">
+
+        <label for="question_field"
+               class="label"><span>Question</span></label>
+        <div class="control">
+            <textarea name="question" id="question_field" cols="5" rows="3" data-validate="{required:true}"></textarea>
+        </div>
+
+    </div>
+</fieldset>

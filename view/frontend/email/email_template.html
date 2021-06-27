@@ -1,0 +1,12 @@
+{{template config_path="design/email/header_template"}}
+
+<p class="greeting">{{trans "Hello <b>%administrator_name</b>," administrator_name=$administrator_name|row}}</p>
+
+<p >{{trans "The Question is <b>%administrator_question</b>," administrator_question=$administrator_question|row}}</p>
+<p >{{trans "My Infomation :}}</p>
+<p >{{trans "Address :<b>%address_customer</b>," address_customer=$address_customer|row}}</p>
+<p >{{trans "City :<b>%city_customer</b>," city_customer=$city_customer|row}}</p>
+<p >{{trans "Number Phone :<b>%numberphone_customer</b>," numberphone_customer=$numberphone_customer|row}}</p>
+<p >{{trans "Email : <b>%administrator_email</b>," administrator_email=$administrator_email|row}}</p>
+
+{{template config_path="design/email/footer_template"}}

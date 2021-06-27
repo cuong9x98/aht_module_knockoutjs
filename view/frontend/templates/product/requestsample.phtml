@@ -1,0 +1,61 @@
+<?php if ($block->isLogin()) : ?>
+    <a id="button">
+        <span><?= $block->escapeHtml(__('Request a sample')) ?></span>
+    </a>
+<?php else : ?>
+    <a href="<?= $block->escapeUrl('sample/sample/checklogin') ?>" id="login">
+        <span><?= $block->escapeHtml(__('Request a sample')) ?></span>
+    </a>
+<?php endif ?>
+
+<!--Form modal-->
+<form id="modal" class="modal" action="<?= $block->escapeUrl('sample/sample/send') ?>" method="post">
+    <?= $block->getBlockHtml('formkey') ?>
+    <?= $block->getChildHtml('form_fields_before') ?>
+
+    <div id="custom-component" data-bind="scope:'customcomponent'">
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <script type="text/x-magento-init">
+            {
+                "#custom-component": {
+                    "Magento_Ui/js/core/app": {
+                       "components": {
+                            "customcomponent": {
+                                "component": "AHT_RequestSample/js/custom-component"
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+    </div>
+
+    <div class="primary actions-primary">
+        <button name="createbtn" type="submit" class="action submit primary">
+            <span><?= $block->escapeHtml(__('Submit')) ?></span>
+        </button>
+    </div>
+</form>
+
+<script type="text/javascript">
+    require([
+        "jquery",
+        "Magento_Ui/js/modal/modal"
+    ], function ($, modal) {
+
+        var options = {
+            type: 'popup',
+            responsive: true,
+            title: 'Request a sample',
+        };
+
+        var popup = modal(options, $('#modal'));
+        $("#button").click(function () {
+            $('#modal').modal('openModal');
+        });
+    });
+</script>
+
+
+
+
