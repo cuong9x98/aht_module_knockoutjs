@@ -70,11 +70,12 @@ class Send extends \Magento\Framework\App\Action\Action
                 $templateParams = ['store' => $store, 'administrator_name' => $receiverInfo['name'],'administrator_email' => $receiverInfo['email'],'administrator_question' => $receiverInfo['question'],
                     'numberphone_customer'=>$receiverInfo['numberphone'],'address_customer'=>$receiverInfo['address'],'city_customer'=>$receiverInfo['city']];
                 $email =  $this->scopeConfig->getValue('request/sample/receive_email',\Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+                $email_template =  $this->scopeConfig->getValue('request/sample/email_template',\Magento\Store\Model\ScopeInterface::SCOPE_STORE);
                 if(empty($email)){
                     $email ='cuong9x98@gmail.com';
                 }
                 $transport = $this->transportBuilder->setTemplateIdentifier(
-                    'email_template'
+                    $email_template
                 )->setTemplateOptions(
                     ['area' => 'frontend', 'store' => $store->getId()]
                 )->addTo(
